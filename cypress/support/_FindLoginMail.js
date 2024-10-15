@@ -1,19 +1,28 @@
 class _FindLoginMail {
 
+constructor() {
+this.url = 'https://www.trainerize.com/'
+this.AcceptCookies = '#onetrust-accept-btn-handler'
+this.OpenNavMenu = '#navHeader > button'
+this.OpenSignInMenu = '#navHeader > div.navbar-collapse.navHeaderCollapse.collapse.in > ul > li:nth-child(7) > a'
+this.TextForEmail = '#t_email'
+this.FindEmailButton = '#b_findurl'
+
+
+}
+
 visitFindMailPage() {
-    cy.visit('https://www.trainerize.com/');
-    cy.get('#onetrust-accept-btn-handler');
-    cy.get('#navHeader > button').click();
-    cy.get('#navHeader > div.navbar-collapse.navHeaderCollapse.collapse.in > ul > li:nth-child(7) > a').click();
-    cy.get('#t_email');
+    cy.visit(this.url);
+    cy.get(this.AcceptCookies).click();
+    cy.get(this.OpenNavMenu).click();
+    cy.get(this.OpenSignInMenu).click();
 }
 
 enterEmailAdress(email) {
 if (email) {
-    cy.get('#t_email').type(email);
+    cy.get(this.TextForEmail).type(email);
 }
-
-cy.get('#b_findurl').click();
+    cy.get(this.FindEmailButton).click();
 
 }}
 
