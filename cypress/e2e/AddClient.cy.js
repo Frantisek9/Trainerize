@@ -1,20 +1,25 @@
-import _LoginPage from '../support/_LoginPage';
-import _AddClient from '../support/_AddClient';
+import _loginPage from '../support/_loginPage';
+import _addClient from '../support/_addClient';
 
-describe('Client Management Tests', () => {
-  it('should log in and create a new client', () => {
+describe('Create client process', () => {
+  const clientEmail = 'frantisekoch.rere@gmail.com';
+  const clientFirstName = 'Roman';
+  const clientLastName = 'Pech';
 
-    _LoginPage.visit();
-    _LoginPage.login('frantisekoch.fit@gmail.com', 'Fo111343234');
-
-    _AddClient.createClient('RomanPech.fit@gmail.com', 'Roman', 'Pech');
+  beforeEach(function () {
+    _loginPage.login();
+    this.successfulLogin = 'body > div:nth-child(23) > div > div.modal-wrap.modal-centered > div > div.modal-content > div';
+    this.failedLogin = '#trGrid_content';
   });
 
-  it('should delete the created client', () => {
-
-    _LoginPage.visit();
-    _LoginPage.login('frantisekoch.fit@gmail.com', 'Fo111343234');
-
-    _AddClient.deleteClient('Roman Pech');
+  it('Should create a new client', () => {
+    _addClient.createClient(clientEmail, clientFirstName, clientLastName);
+    cy.get(this.successfulLogin).should('be.visible');
   });
+
+  it('Should delete a new client', () => {
+    _addClient.deleteClient(clientLastName);
+    cy.get(this.failedLogin).should('not.be.visible');
+  });
+
 });
