@@ -13,7 +13,6 @@ class _addClient {
     this.deleteClientAcc = 'body > div:nth-child(22) > div > div > ul > li:nth-child(2)';
     this.confirmDeleteAcc = 'body > div:nth-child(24) > div > div.modal-wrap.modal-centered > div > div.modal-content > div.modal-footer > div > div > button.ant-btn.btn.btn--medium.btn--red.mr8.ant-btn-button';
 
-
   }
 
   createClient(email, firstName, lastName) {
@@ -23,6 +22,7 @@ class _addClient {
     cy.get(this.clientFirstName).type(firstName);
     cy.get(this.clientLastName).type(lastName);
     cy.get(this.saveNewClient).click();
+    cy.wait(3000);
   }
 
   deleteClient(clientLastName) {
