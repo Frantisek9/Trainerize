@@ -8,7 +8,6 @@ describe('Create client process', () => {
 
   beforeEach(function () {
     _loginPage.login();
- 
   });
 
   it('Should create a new client', () => {

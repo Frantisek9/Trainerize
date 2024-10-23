@@ -8,10 +8,12 @@ class _addClient {
     this.saveNewClient = '.btn--blue';
 
     this.searchClients = '#baseGrid_searchBar_container > input';
-    this.openClientAcc = '#clientGrid_item_20122126 > div > div.clientGrid-static-clientDetail.flex-left.flex-align-center > div.flex-left.flex-top.flex-column.ml8.text-overflow-none > p > a';
-    this.openAccOptions = 'body > div:nth-child(20) > div > div.modal-wrap.modal-centered.modal-profile > div > div.modal-content > div > div.modalTabs > div.modalMenu.flex-self-right > div > button:nth-child(5)';
+    this.openClientAcc = '#clientList';
+    this.openAccOptions = '[data-testid="clientProfileDialog-modalMenu-moreActions"]';
     this.deleteClientAcc = 'body > div:nth-child(22) > div > div > ul > li:nth-child(2)';
     this.confirmDeleteAcc = 'body > div:nth-child(24) > div > div.modal-wrap.modal-centered > div > div.modal-content > div.modal-footer > div > div > button.ant-btn.btn.btn--medium.btn--red.mr8.ant-btn-button';
+    this.verifyDeletedAcc = '#clientList';
+    this.clientDeleteName = 'Roman Pech';
 
   }
 
@@ -28,10 +30,12 @@ class _addClient {
   deleteClient(clientLastName) {
     cy.get(this.clientNav).click();
     cy.get(this.searchClients).type(clientLastName);
-    cy.get(this.openClientAcc).click();
+    cy.wait(3000);
+    cy.get(this.openClientAcc).contains(this.clientDeleteName).click();
     cy.get(this.openAccOptions).click();
     cy.get(this.deleteClientAcc).click();
     cy.get(this.confirmDeleteAcc).click();
+    cy.wait(3000);
 
   }
 }
