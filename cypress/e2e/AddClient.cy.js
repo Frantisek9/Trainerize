@@ -1,7 +1,7 @@
 import _loginPage from '../support/_loginPage';
 import _addClient from '../support/_addClient';
 
-describe('Create client process', () => {
+describe('Create client processs', () => {
 
   beforeEach(function () {
     _loginPage.login();
