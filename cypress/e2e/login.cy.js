@@ -1,4 +1,4 @@
-import _verifyLogin from '../support/_verifyLogin'; 
+import _login from '../support/_login'; 
 
 describe('Verify login tests', function () {
 
@@ -6,15 +6,15 @@ describe('Verify login tests', function () {
   });
 
   it('Valid email and password', function () {
-    _verifyLogin.verifySuccessfulLogin();
+    _login.verifySuccessfulLogin();
   });
 
   it('Valid email, invalid password', function () {
-    _verifyLogin.verifyUnsuccessfulLoginWithInvalidPassword();
+    _login.verifyUnsuccessfulLoginWithInvalidPassword();
   });
 
   it('Invalid email, valid password', function () {
-    _verifyLogin.verifyUnsuccessfulLoginWithInvalidEmailAndPassword();
+    _login.verifyUnsuccessfulLoginWithInvalidEmailAndPassword();
   });
 
 }); 

@@ -1,5 +1,8 @@
 class _addClient {
   constructor() {
+
+
+    
     this.clientNav = '#nav_clients';
     this.addClient = '#clientGrid__toolbar_addClient';
     this.clientEmail = '[data-testid="addClientDialog-emailInput"]';

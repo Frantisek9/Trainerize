@@ -1,4 +1,4 @@
-import _findEmail from '../support/_findEmail';
+import _emailDetection from '../support/_emailDetection';
 
 describe('Find Email Test', function () {
 
@@ -6,10 +6,10 @@ describe('Find Email Test', function () {
     });
 
     it('Should successfully find email', function () {
-        _findEmail.successfulLogin();;
+        _emailDetection.successfulLogin();;
     });
     
     it('Should error for invalid email', function () {
-        _findEmail.unSuccessfulLogin();
+        _emailDetection.unSuccessfulLogin();
     });
 });
